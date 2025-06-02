@@ -86,12 +86,8 @@ export default function Dashboard() {
     }, [selectedCourse]);
 
     return (
-        <div className="min-h-screen flex flex-col">
+         <div className="container mx-auto px-4 py-8">
           <Navbar />
-          <main className="flex-grow">
-            <div className="bg-gray-50 py-8">
-                <div className="container mx-auto px-4">
-                    <div className="mb-8">
             <h1 className="text-3xl font-bold mb-8">Dashboard</h1>
             <Tabs value={tab} onValueChange={setTab} className="w-full">
                 <TabsList className="grid w-full grid-cols-3">

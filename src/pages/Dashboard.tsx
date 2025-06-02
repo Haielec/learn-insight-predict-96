@@ -17,6 +17,7 @@ const GENDER_COLORS = ["#8884d8", "#82ca9d", "#ffc658"];
 interface Course {
     courseId: number;
     name: string;
+    numUsers: number;
     numVideos: number;
     numProblems: number;
     numResources: number;
@@ -237,6 +238,15 @@ export default function Dashboard() {
                                         </CardHeader>
                                         <CardContent>
                                             <p className="text-xl font-bold">{selected.courseId}</p>
+                                        </CardContent>
+                                    </Card>
+
+                                    <Card>
+                                        <CardHeader>
+                                            <CardTitle>Số lượng học viên</CardTitle>
+                                        </CardHeader>
+                                        <CardContent>
+                                            <p className="text-xl font-bold">{selected.numUsers}</p>
                                         </CardContent>
                                     </Card>
 

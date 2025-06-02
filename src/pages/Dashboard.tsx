@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -94,93 +93,114 @@ export default function Dashboard() {
                 </TabsList>
 
                 <TabsContent value="overview" className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    {/* Stats Cards */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
                         <Card>
-                            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                                <CardTitle className="text-sm font-medium">Tổng số khóa học</CardTitle>
-                                <BookOpen className="h-4 w-4 text-muted-foreground" />
+                            <CardHeader className="pb-2">
+                                <CardTitle className="text-sm font-medium text-gray-500 flex items-center gap-2">
+                                    <Users className="h-4 w-4" />
+                                    Tổng học viên
+                                </CardTitle>
                             </CardHeader>
                             <CardContent>
-                                <div className="text-2xl font-bold">{courses.length}</div>
-                                <p className="text-xs text-muted-foreground">
-                                    Khóa học đang hoạt động
+                                <div className="text-3xl font-bold">2,845</div>
+                                <p className="text-xs text-green-600 flex items-center mt-1">
+                                    <TrendingUp className="h-3 w-3 mr-1" />
+                                    +12.5% so với kỳ trước
                                 </p>
                             </CardContent>
                         </Card>
-                        
+
                         <Card>
-                            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                                <CardTitle className="text-sm font-medium">Điểm hài lòng trung bình</CardTitle>
-                                <TrendingUp className="h-4 w-4 text-muted-foreground" />
+                            <CardHeader className="pb-2">
+                                <CardTitle className="text-sm font-medium text-gray-500 flex items-center gap-2">
+                                    <BookOpen className="h-4 w-4" />
+                                    Khóa học
+                                </CardTitle>
                             </CardHeader>
                             <CardContent>
-                                <div className="text-2xl font-bold">
-                                    {satisfactionData.length > 0 
-                                        ? (satisfactionData.reduce((sum, item) => sum + item.score, 0) / satisfactionData.length).toFixed(1)
-                                        : "0.0"
-                                    }
-                                </div>
-                                <p className="text-xs text-muted-foreground">
-                                    Từ tất cả khóa học
+                                <div className="text-3xl font-bold">128</div>
+                                <p className="text-xs text-green-600 flex items-center mt-1">
+                                    <TrendingUp className="h-3 w-3 mr-1" />
+                                    +5.2% so với kỳ trước
                                 </p>
                             </CardContent>
                         </Card>
-                        
+
                         <Card>
-                            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                                <CardTitle className="text-sm font-medium">Người dùng hoạt động</CardTitle>
-                                <Users className="h-4 w-4 text-muted-foreground" />
+                            <CardHeader className="pb-2">
+                                <CardTitle className="text-sm font-medium text-gray-500 flex items-center gap-2">
+                                    <Award className="h-4 w-4" />
+                                    Tỉ lệ hài lòng
+                                </CardTitle>
                             </CardHeader>
                             <CardContent>
-                                <div className="text-2xl font-bold">1,234</div>
-                                <p className="text-xs text-muted-foreground">
-                                    +20.1% so với tháng trước
+                                <div className="text-3xl font-bold">85.4%</div>
+                                <p className="text-xs text-green-600 flex items-center mt-1">
+                                    <TrendingUp className="h-3 w-3 mr-1" />
+                                    +3.7% so với kỳ trước
                                 </p>
                             </CardContent>
                         </Card>
-                        
+
                         <Card>
-                            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                                <CardTitle className="text-sm font-medium">Tỷ lệ hoàn thành</CardTitle>
-                                <Award className="h-4 w-4 text-muted-foreground" />
+                            <CardHeader className="pb-2">
+                                <CardTitle className="text-sm font-medium text-gray-500 flex items-center gap-2">
+                                    <TrendingUp className="h-4 w-4" />
+                                    Độ chính xác mô hình
+                                </CardTitle>
                             </CardHeader>
                             <CardContent>
-                                <div className="text-2xl font-bold">85.6%</div>
-                                <p className="text-xs text-muted-foreground">
-                                    +12.5% so với tháng trước
+                                <div className="text-3xl font-bold">92.3%</div>
+                                <p className="text-xs text-green-600 flex items-center mt-1">
+                                    <TrendingUp className="h-3 w-3 mr-1" />
+                                    +1.4% so với kỳ trước
                                 </p>
                             </CardContent>
                         </Card>
                     </div>
 
-                    {satisfactionData.length > 0 && (
-                        <Card>
-                            <CardHeader>
-                                <CardTitle>Xu hướng độ hài lòng theo thời gian</CardTitle>
-                                <CardDescription>
-                                    Biểu đồ thể hiện sự thay đổi của độ hài lòng học viên
-                                </CardDescription>
-                            </CardHeader>
-                            <CardContent>
-                                <ResponsiveContainer width="100%" height={300}>
-                                    <LineChart data={satisfactionData}>
-                                        <CartesianGrid strokeDasharray="3 3" />
-                                        <XAxis dataKey="date" />
-                                        <YAxis />
-                                        <Tooltip />
-                                        <Legend />
-                                        <Line 
-                                            type="monotone" 
-                                            dataKey="score" 
-                                            stroke="#8884d8" 
-                                            strokeWidth={2}
-                                            name="Điểm hài lòng"
-                                        />
-                                    </LineChart>
-                                </ResponsiveContainer>
-                            </CardContent>
-                        </Card>
-                    )}
+                    {/* Main Chart */}
+                    <Card>
+                        <CardHeader>
+                            <CardTitle className="flex items-center gap-2">
+                                <TrendingUp className="h-5 w-5 text-research-primary" />
+                                <span>Phân bố mức độ hài lòng theo thời gian</span>
+                            </CardTitle>
+                            <CardDescription>
+                                Phân tích xu hướng độ hài lòng của học viên theo các giai đoạn khóa học
+                            </CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="h-80">
+                                {loading ? (
+                                    <div className="h-full w-full flex items-center justify-center">
+                                        <Skeleton className="h-[300px] w-full rounded" />
+                                    </div>
+                                ) : (
+                                    <ResponsiveContainer width="100%" height="100%">
+                                        <LineChart
+                                            data={satisfactionData}
+                                            margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+                                        >
+                                            <CartesianGrid strokeDasharray="3 3" />
+                                            <XAxis dataKey="date" />
+                                            <YAxis domain={[50, 100]} />
+                                            <Tooltip />
+                                            <Legend />
+                                            <Line
+                                                type="monotone"
+                                                dataKey="score"
+                                                name="Điểm hài lòng trung bình"
+                                                stroke="#8884d8"
+                                                activeDot={{ r: 8 }}
+                                            />
+                                        </LineChart>
+                                    </ResponsiveContainer>
+                                )}
+                            </div>
+                        </CardContent>
+                    </Card>
                 </TabsContent>
 
                 <TabsContent value="course">

@@ -83,9 +83,17 @@ export default function Dashboard() {
     }, [selectedCourse]);
 
     return (
-        <div className="container mx-auto px-4 py-8">
-            <h1 className="text-3xl font-bold mb-8">Dashboard</h1>
-            <Tabs value={tab} onValueChange={setTab} className="w-full">
+    <div className="min-h-screen flex flex-col">
+      <Navbar />
+      <main className="flex-grow">
+        <div className="bg-gray-50 py-8">
+          <div className="container mx-auto px-4">
+            <div className="mb-8">
+              <h1 className="text-3xl font-bold text-gray-900 mb-2">Dashboard</h1>
+              <p className="text-gray-600">Trực quan hóa dữ liệu và kết quả dự đoán</p>
+            </div>
+            
+            <Tabs defaultValue="overview" className="space-y-6" value={activeTab} onValueChange={setActiveTab}>
                 <TabsList className="grid w-full grid-cols-3">
                     <TabsTrigger value="overview">Tổng quan</TabsTrigger>
                     <TabsTrigger value="course">Khóa học</TabsTrigger>

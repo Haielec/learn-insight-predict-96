@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line, CartesianGrid, Legend } from "recharts";
@@ -8,6 +10,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Link } from "react-router-dom";
 import { TrendingUp, Users, BookOpen, Award } from "lucide-react";
 import ModelEvaluationContent from "@/components/ModelEvaluationContent";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
 const GENDER_COLORS = ["#8884d8", "#82ca9d", "#ffc658"];
 

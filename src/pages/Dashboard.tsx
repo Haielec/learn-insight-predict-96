@@ -237,7 +237,7 @@ export default function Dashboard() {
                                             <CardTitle>Mã khóa học</CardTitle>
                                         </CardHeader>
                                         <CardContent>
-                                            <p className="text-xl font-bold">{selected.courseId}</p>
+                                            <p className="text-base">{selected.courseId}</p>
                                         </CardContent>
                                     </Card>
 
@@ -246,7 +246,7 @@ export default function Dashboard() {
                                             <CardTitle>Số lượng học viên</CardTitle>
                                         </CardHeader>
                                         <CardContent>
-                                            <p className="text-xl font-bold">{selected.numUsers}</p>
+                                            <p className="text-base">{selected.numUsers}</p>
                                         </CardContent>
                                     </Card>
 
@@ -255,7 +255,7 @@ export default function Dashboard() {
                                             <CardTitle>Số lượng video</CardTitle>
                                         </CardHeader>
                                         <CardContent>
-                                            <p className="text-xl font-bold">{selected.numVideos}</p>
+                                            <p className="text-base">{selected.numVideos}</p>
                                         </CardContent>
                                     </Card>
 
@@ -264,7 +264,7 @@ export default function Dashboard() {
                                             <CardTitle>Số lượng bài tập</CardTitle>
                                         </CardHeader>
                                         <CardContent>
-                                            <p className="text-xl font-bold">{selected.numProblems}</p>
+                                            <p className="text-base">{selected.numProblems}</p>
                                         </CardContent>
                                     </Card>
 
@@ -273,7 +273,7 @@ export default function Dashboard() {
                                             <CardTitle>Số lượng tài nguyên</CardTitle>
                                         </CardHeader>
                                         <CardContent>
-                                            <p className="text-xl font-bold">{selected.numResources}</p>
+                                            <p className="text-base">{selected.numResources}</p>
                                         </CardContent>
                                     </Card>
                                 </div>

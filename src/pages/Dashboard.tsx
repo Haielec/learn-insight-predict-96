@@ -368,10 +368,12 @@ export default function Dashboard() {
                     </Card>
                 </TabsContent>
             </Tabs>
+          </div>
         </div>
       </div>
     </main>
     <Footer />
   </div>
-);
-
+  );
+};
+               

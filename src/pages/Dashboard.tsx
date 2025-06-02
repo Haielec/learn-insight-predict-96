@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -50,12 +51,12 @@ export default function Dashboard() {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        fetch("/api/v1/course")
+        fetch("http://localhost:5000/api/v1/course")
             .then((res) => res.json())
             .then((data) => setCourses(data.courseOverview))
             .catch((error) => console.error("Error fetching courses:", error));
 
-        fetch("/api/v1/satisfaction_over_time")
+        fetch("http://localhost:5000/api/v1/satisfaction_over_time")
             .then((res) => res.json())
             .then((data) => setSatisfactionData(data))
             .catch((err) => console.error("Error fetching satisfaction data:", err));
@@ -65,9 +66,9 @@ export default function Dashboard() {
         if (selectedCourse) {
             setLoading(true);
             Promise.all([
-                fetch(`/api/v1/gender/${selectedCourse}`).then(res => res.json()),
-                fetch(`/api/v1/week_com/${selectedCourse}`).then(res => res.json()),
-                fetch(`/api/v1/week_sco/${selectedCourse}`).then(res => res.json())
+                fetch(`http://localhost:5000/api/v1/gender/${selectedCourse}`).then(res => res.json()),
+                fetch(`http://localhost:5000/api/v1/week_com/${selectedCourse}`).then(res => res.json()),
+                fetch(`http://localhost:5000/api/v1/week_sco/${selectedCourse}`).then(res => res.json())
             ])
                 .then(([genderData, commentData, scoreData]) => {
                     setGenderData(genderData);
